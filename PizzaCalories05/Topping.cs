@@ -25,10 +25,8 @@ namespace PizzaCalories05
                     && value.ToLower() != "cheese"
                     && value.ToLower() != "sauce")
                 {
-                    Exception ex = new ArgumentException($"Cannot place {value} on" +
-                        $" top of your pizza.");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new InvalidOperationException(String.Format
+                       (Exceptions.InvalidToppingTypeException, value));
                 }
 
                 type = value;
@@ -42,10 +40,8 @@ namespace PizzaCalories05
             {
                 if (value < 1 || value > 50)
                 {
-                    string type = Char.ToUpper(Type[0]) + Type.Substring(1);
-                    Exception ex = new ArgumentException($"{type} weight should be in the range [1..50].");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new InvalidOperationException(String.Format
+                        (Exceptions.InvalidToppingWeightException, this.Type));
                 }
                 weight = value;
             }

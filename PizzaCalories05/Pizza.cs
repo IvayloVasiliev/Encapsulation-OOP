@@ -25,9 +25,7 @@ namespace PizzaCalories05
             {
                 if (value.Length < 1 || value.Length > 15)
                 {
-                    Exception ex = new ArgumentException("Pizza name should be between 1 and 15 symbols.");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new ArgumentException(Exceptions.InvalidPizzaNameException);
                 }
                 name = value;
             }
@@ -40,17 +38,16 @@ namespace PizzaCalories05
             get => toppings; 
             set
             {
-                if (value.Count > 10)
-                {
-                    Exception ex = new ArgumentException("Number of toppings should be in range [0..10].");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
-                }
+                
                 toppings = value;
             }
         }
         public void Add(Topping topping)
         {
+            if (Toppings.Count > 10)
+            {
+                throw new ArgumentException(Exceptions.InvalidToppingCountException);
+            }
             Toppings.Add(topping);
         }
 

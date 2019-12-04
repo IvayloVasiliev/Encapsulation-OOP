@@ -24,9 +24,7 @@ namespace PizzaCalories05
             {
                 if (value.ToLower() != "white" && value.ToLower() != "wholegrain")
                 {
-                    Exception ex = new ArgumentException("Invalid type of dough.");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new ArgumentException(Exceptions.InvalidDoughTypeException);
                 }
                 flour = value.ToLower();
             }
@@ -40,9 +38,7 @@ namespace PizzaCalories05
                     && value.ToLower() != "chewy"
                     && value.ToLower() != "homemade")
                 {
-                    Exception ex = new ArgumentException("Invalid type of dough.");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new ArgumentException(Exceptions.InvalidDoughTypeException);
                 }
 
                 bakingTechnique = value.ToLower();
@@ -56,9 +52,7 @@ namespace PizzaCalories05
             {
                 if (value < 1 || value > 200)
                 {
-                    Exception ex = new ArgumentException("Dough weight should be in the range [1..200].");
-                    Console.WriteLine(ex.Message);
-                    Environment.Exit(0);
+                    throw new ArgumentException(Exceptions.InvalidDoughWeightException);
                 }
                 weight = value;
             }
