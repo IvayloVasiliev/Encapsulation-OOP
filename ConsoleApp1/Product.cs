@@ -23,7 +23,7 @@ namespace ShoppingSpree04
                 if (value < 0)
                 {
                     Exception ex = new ArgumentException("Name cannot be empty");
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                     Environment.Exit(0);
                 }
 
@@ -40,7 +40,7 @@ namespace ShoppingSpree04
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
                     Exception ex = new ArgumentException("Money cannot be negative");
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                     Environment.Exit(0);
                 }
                 name = value;
